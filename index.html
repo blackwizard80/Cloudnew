@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Cloud Web - Ultimate</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginPage">
+  <div class="login-card">
+    <div class="app-logo">☁️</div>
+    <h1>Cloud Login</h1>
+    <p>Enter passkey to join</p>
+    <div class="input-group">
+      <input id="password" type="password" placeholder="Passkey" inputmode="numeric">
+      <button id="loginBtn"><span class="material-icons-round">login</span></button>
+    </div>
+    <p id="errorMsg">Access Denied!</p>
+  </div>
+</div>
+
+<div id="appHeader">
+  <div class="header-left">
+    <span class="app-title">Wizard Chat</span>
+    <div id="onlineUsers">Connecting...</div>
+  </div>
+  <div class="header-actions">
+    <button id="themeBubble" class="icon-btn" title="Theme"><span class="material-icons-round">palette</span></button>
+    <button id="magicBubble" class="icon-btn" title="Effects"><span class="material-icons-round">auto_fix_high</span></button>
+    <button id="fontBubble" class="icon-btn" title="Fonts"><span class="material-icons-round">text_fields</span></button>
+    <button id="loveBubble" class="icon-btn" title="Emoji Rain"><span class="material-icons-round">favorite</span></button>
+    <button id="imageBubble" class="icon-btn" title="Gallery"><span class="material-icons-round">image</span></button>
+    <button id="lastSeenBubble" class="icon-btn" title="History"><span class="material-icons-round">history</span></button>
+  </div>
+</div>
+
+<div id="messages"></div>
+
+<div id="typingIndicator">
+  <span id="typingUser">User</span>
+  <span id="typingAction">is typing...</span>
+  <div class="typing-dots">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<div id="lastSeenPopup" class="popup-menu">
+  <h3>Last Seen <span class="close-popup material-icons-round">close</span></h3>
+  <div id="lastSeenList">Loading...</div>
+</div>
+
+<div id="imagePopup" class="popup-menu">
+  <h3>Gallery <span class="close-popup material-icons-round">close</span></h3>
+  <iframe src="https://blackwizard80.github.io/img/"></iframe>
+</div>
+
+<div id="chatImageLightbox" class="lightbox">
+    <span class="lightbox-close material-icons-round">close</span>
+    <img id="lightboxImg" src="" alt="Full View">
+</div>
+
+<div id="emojiPopup" class="popup-menu">
+  <h3>Emoji Rain <span class="close-popup material-icons-round">close</span></h3>
+  <div id="emojiListContainer"></div>
+</div>
+
+<div id="themePopup" class="popup-menu">
+  <h3>Select Theme <span class="close-popup material-icons-round">close</span></h3>
+  <div id="colorThemeList"></div>
+</div>
+
+<div id="magicPopup" class="popup-menu">
+  <h3>Global Effects <span class="close-popup material-icons-round">close</span></h3>
+  <div id="magicList"></div>
+</div>
+
+<div id="fontPopup" class="popup-menu">
+  <h3>Select Font <span class="close-popup material-icons-round">close</span></h3>
+  <div id="fontList"></div>
+</div>
+
+<div id="reactionPopup">
+  <div class="reaction-wrapper">
+      <span class="reaction-emoji" data-reaction="👍">👍</span>
+      <span class="reaction-emoji" data-reaction="❤️">❤️</span>
+      <span class="reaction-emoji" data-reaction="😂">😂</span>
+      <span class="reaction-emoji" data-reaction="😮">😮</span>
+      <span class="reaction-emoji" data-reaction="😢">😢</span>
+      <span class="reaction-emoji" data-reaction="🙏">🙏</span>
+  </div>
+</div>
+
+<div id="emojiRainContainer" class="effect-layer"></div>
+<div id="snowContainer" class="effect-layer"></div>
+<div id="fireflyContainer" class="effect-layer"></div>
+<div id="confettiContainer" class="effect-layer"></div>
+<div id="sakuraContainer" class="effect-layer"></div>
+<div id="bubbleContainer" class="effect-layer"></div>
+<div id="goldDustContainer" class="effect-layer"></div>
+<div id="matrixContainer" class="effect-layer"></div>
+<div id="heartContainer" class="effect-layer"></div>
+<div id="balloonContainer" class="effect-layer"></div>
+<div id="sparkleContainer" class="effect-layer"></div>
+<div id="romanceContainer" class="effect-layer"></div>
+<div id="musicContainer" class="effect-layer"></div>
+<div id="rainContainer" class="effect-layer"></div>
+<div id="lanternContainer" class="effect-layer"></div>
+<div id="ufoContainer" class="effect-layer"></div>
+<div id="superAlienContainer" class="effect-layer" style="z-index: 200;"></div>
+
+<div id="lightningFlash" class="effect-layer" style="background: #fff; opacity: 0; z-index: 999; display:none;"></div>
+<canvas id="lightningCanvas" class="effect-layer" style="z-index: 998; display:none;"></canvas>
+<canvas id="fireworksCanvas" class="effect-layer" style="z-index: 205; display:none;"></canvas>
+
+<div id="sendMsg">
+  <div id="replyContext">
+    <div class="reply-content">
+      <span class="reply-label">Replying to</span>
+      <span id="replyMsg"></span>
+    </div>
+    <button id="cancelReply"><span class="material-icons-round">close</span></button>
+  </div>
+  
+  <div class="input-container">
+    <button id="imgUploadBtn" class="action-btn" title="Upload Image">
+      <span class="material-icons-round">add_photo_alternate</span>
+    </button>
+    <input id="imgUpload" type="file" accept="image/*" style="display:none;">
+
+    <input id="msgTxt" type="text" placeholder="Message..." autocomplete="off" />
+    <button id="videoCallBtn" class="action-btn" title="Video Call">
+  <span class="material-icons-round">videocam</span>
+</button>
+
+    <button id="startRec" class="action-btn" title="Record Audio">
+      <span class="material-icons-round">mic</span>
+    </button>
+    <button id="stopRec" class="action-btn recording-active" title="Stop Recording" style="display:none;">
+      <span class="material-icons-round">stop_circle</span>
+    </button>
+    
+    <button id="msgBtn" class="send-btn">
+      <span class="material-icons-round">send</span>
+    </button>
+  </div>
+</div>
+
+<script type="module" src="script.js"></script>
+<div id="videoCallModal" class="video-modal" style="display: none;">
+    <div class="video-container">
+        <video id="remoteVideo" autoplay playsinline></video>
+
+        <video id="localVideo" autoplay playsinline muted></video>
+
+<div class="video-controls">
+    <button id="micToggleBtn" class="control-btn" title="Mute/Unmute Mic">
+        <span class="material-icons-round">mic</span>
+    </button>
+    
+    <button id="hangupBtn" class="control-btn hangup">
+        <span class="material-icons-round">call_end</span>
+    </button>
+    <div id="callStatus">Connecting...</div>
+</div>
+
+    </div>
+</div>
+
+<div id="incomingCallAlert" class="incoming-alert" style="display: none;">
+    <span class="material-icons-round pulse-icon">videocam</span>
+    <div class="caller-info">
+        <p>Incoming Video Call...</p>
+    </div>
+    <button id="acceptCallBtn" class="accept-btn">Answer</button>
+    <button id="rejectCallBtn" class="reject-btn">Decline</button>
+</div>
+
+</body>
+</html>
